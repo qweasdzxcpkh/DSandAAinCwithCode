@@ -1,5 +1,12 @@
 # include <stdlib.h>
 
+int Max3(int a, int b, int c)
+{
+    if(a >= b && a >= c)
+        return a;
+    else
+        return Max3(b, c, a);
+}
 
 // T(n)=O(N^3)
 int MaxSubsequenceSum_0(const int A[], int N)
