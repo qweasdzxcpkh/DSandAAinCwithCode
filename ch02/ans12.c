@@ -43,6 +43,16 @@ int MinSubsequenceSum(const int A[], int Left, int Right)
     return Min3(MinRightSum, MinLeftSum, MinRightBorderSum+MinLeftBorderSum);
 }
 
+int MinSubsequencePositiveSum()
+{
+    return 0;
+}
+
+int MaxSubsequenceMuti()
+{
+    return 0;
+}
+
 int main(int argc, char *argv[])
 {
     int a[] = {4, -7, 5, -2, -4, 2, 6, -2};
