@@ -43,6 +43,25 @@ int MinSubsequenceSum(const int A[], int Left, int Right)
     return Min3(MinRightSum, MinLeftSum, MinRightBorderSum+MinLeftBorderSum);
 }
 
+// T(n)=O(N)
+int MinSubsequenceSum_linear(const int A[], int N)
+{
+    int ThisSum, MinSum;
+    int i;
+
+    ThisSum = 0; MinSum = 0;
+    for(i=0; i<N; i++)
+    {
+        ThisSum += A[i];
+        if(ThisSum < MinSum)
+            MinSum = ThisSum;
+        if(ThisSum >= 0)
+            ThisSum = 0;
+    }
+
+    return MinSum;
+}
+
 int MinSubsequencePositiveSum()
 {
     return 0;
@@ -58,6 +77,10 @@ int main(int argc, char *argv[])
     int a[] = {4, -7, 5, -2, -4, 2, 6, -2};
     int result;  // -8
     result = MinSubsequenceSum(a, 0, 7);
-    printf("exec MinSubsequenceSum have result = %d\n", result);
+    printf("exec MinSubsequenceSum have result = %d\n\n", result);
+
+    result = MinSubsequenceSum_linear(a, 8);
+    printf("exec MinSubsequenceSum_linear have result = %d\n\n", result);
+
     return 0;
 }
