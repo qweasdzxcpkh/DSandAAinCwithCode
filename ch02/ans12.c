@@ -71,13 +71,7 @@ struct Item
 
 int MinSubsequencePositiveSum(const int A[], int N)
 {
-    /*
-    思路：
-    0、求出以A[0]为开头的所有子序列和，这个和可以通过相减获得所有子序列和
-    1、以i为数组下标，求出一个S(i)数组，里面是数组的前i项和
-    2、使用一个结构体(S, i)
-    */
-
+    /* 要点：以数组的第一个元素为开头的子序列集合，通过相减可以得出任意子序列；子序列的和也一样 */
     struct Item S[N+1];
     struct Item tempItem;
     int TempSum, i, j, MinPosSum;
