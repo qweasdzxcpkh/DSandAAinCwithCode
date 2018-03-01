@@ -23,10 +23,23 @@ LL dynamicPlanPow(LL x, int pow)
     return result;
 }
 
+// 递归快速求幂
+LL quickPowRecursive(LL x, int pow)
+{
+    if(pow == 0)  /* Base Case */
+        return 1;
+
+    if(pow & 1)
+        return x * quickPowRecursive(x * x, pow >>= 1);
+    else
+        return quickPowRecursive(x * x, pow >>= 1);
+}
+
 
 int main(int argc, char *argv[])
 {
     printf("dynamicPlanPow 3^5 = %lld\n\n", dynamicPlanPow(3, 5));
+    printf("quickPowRecursive 3^5 = %lld\n\n", quickPowRecursive(3, 5));
     printf("pow 3^5 = %f\n\n", pow(3, 5));
     return 1;
 }
