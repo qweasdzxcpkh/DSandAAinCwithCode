@@ -141,3 +141,27 @@ AvlTree Insert( ElementType X, AvlTree T )
     T->Height = Max( Height( T->Left ), Height( T->Right ) ) + 1;
     return T;
 }
+
+
+// 生成高度为 H 的最小avl树
+AvlTree MinAvlTree( int H )
+{
+    int LastNodeAssigned = 0;
+    return GenMinAvl( H, &LastNodeAssigned );
+}
+
+AvlTree GenMinAvl( int H, int *LastNode )
+{
+    AvlTree T;
+
+    if( H >= 0 )
+    {
+        T = malloc( sizeof( *T ) );
+        T->Left = GenMinAvl( H - 1, LastNode );
+        T->Element = ++*LastNode;
+        T->Right = GenMinAvl( H - 2, LastNode );
+        return T;
+    }
+    else
+        return NULL;
+}
