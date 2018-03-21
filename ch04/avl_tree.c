@@ -159,7 +159,7 @@ AvlTree GenMinAvl( int H, int *LastNode )
         T = malloc( sizeof( *T ) );
         T->Left = GenMinAvl( H - 1, LastNode );
         T->Element = ++*LastNode;
-        T->Right = GenMinAvl( H - 2, LastNode );
+        T->Right = GenMinAvl( H - 2, LastNode );  /* 此处换成 H - 1 就是生成一棵完全平衡二叉树 */
         return T;
     }
     else
