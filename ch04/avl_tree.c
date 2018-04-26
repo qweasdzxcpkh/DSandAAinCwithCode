@@ -165,3 +165,17 @@ AvlTree GenMinAvl( int H, int *LastNode )
     else
         return NULL;
 }
+
+// 对一颗二叉查找树给定 k1, k2(k1<k2), 输出树中k1 <= X <= k2的值
+void PrintRange( ElementType Lower, ElementType Upper, SearchTree T)
+{
+    if( T != NULL )
+    {
+        if( Lower <= T->Element )
+            PrintRange( Lower, Upper, T->Left );
+        if( Lower <= T->Element && T->Element <= Upper )
+            printf( T->Element );
+        if( T->Element <= Upper )
+            PrintRange( Lower, Upper, T->Right );
+    }
+}
